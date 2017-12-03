@@ -21,5 +21,4 @@ email:`sduphylug@googlegroups.com`
 ### 链接
 1. [科大ＬＵＧ](https://lug.ustc.edu.cn)
 2. [Ubuntu中文论坛](http://forum.ubuntu.org.cn)
-3. [孙浩的网页](http://sunflare2017.com)
 
