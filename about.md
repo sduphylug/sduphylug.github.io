@@ -19,6 +19,7 @@ permalink: /about/
 ### 联系方式
 email:`sduphylug@googlegroups.com`
 ### 链接
-[科大ＬＵＧ](lug.ustc.edu.cn)
-[Ubuntu中文论坛](forum.ubuntu.org.cn)
-[孙浩的网页](sunflare2017.com)
+1. [科大ＬＵＧ](https://lug.ustc.edu.cn)
+2. [Ubuntu中文论坛](http://forum.ubuntu.org.cn)
+3. [孙浩的网页](http://sunflare2017.com)
+
