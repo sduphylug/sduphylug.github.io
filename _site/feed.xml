@@ -1,3 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-03T14:24:07+08:00</updated><id>http://localhost:4000/</id><title type="html">sduphylug</title><subtitle>Shandong University School of Physics Linux User Group</subtitle><entry><title type="html">Welcome to sduphylug!</title><link href="http://localhost:4000/2017/12/02/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to sduphylug!" /><published>2017-12-02T19:42:02+08:00</published><updated>2017-12-02T19:42:02+08:00</updated><id>http://localhost:4000/2017/12/02/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2017/12/02/welcome-to-jekyll.html">&lt;h1 id=&quot;welcome-to-sduphylug&quot;&gt;Welcome to sduphylug!&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-04T16:05:44+08:00</updated><id>http://localhost:4000/</id><title type="html">sduphylug</title><subtitle>Shandong University School of Physics Linux User Group</subtitle><entry><title type="html">第一次系统安装讨论会</title><link href="http://localhost:4000/2017/12/03/first.html" rel="alternate" type="text/html" title="第一次系统安装讨论会" /><published>2017-12-03T00:00:00+08:00</published><updated>2017-12-03T00:00:00+08:00</updated><id>http://localhost:4000/2017/12/03/first</id><content type="html" xml:base="http://localhost:4000/2017/12/03/first.html">&lt;p&gt;作为我们小组成立的第一个活动，我们在本周五（公元2017年11月30日）举行了第一次系统安装讨论会。&lt;/p&gt;
+
+&lt;p&gt;这次讨论会主要的活动内容包括以下部分：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;给小组内还没有安装ubuntu系统的组员安装系统。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;演示一些简单但有特色的ubuntu命令，展示ubuntu系统的特点。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;讨论ubuntu系统与主流操作系统，如windows，ios等的优缺点。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;系统正在安装：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/_imag/安装中.jpg&quot; alt=&quot;安装中.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;系统安装完成，小组成员正在体验：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/_imag/安装完成使用中.jpg&quot; alt=&quot;安装完成使用中.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;系统的详细信息：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/_imag/系统详细信息.jpg&quot; alt=&quot;系统详细信息.jpg&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;小组成员正在讨论：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/_imag/讨论.jpg&quot; alt=&quot;讨论.jpg&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">作为我们小组成立的第一个活动，我们在本周五（公元2017年11月30日）举行了第一次系统安装讨论会。</summary></entry><entry><title type="html">Welcome to sduphylug!</title><link href="http://localhost:4000/2017/12/02/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to sduphylug!" /><published>2017-12-02T19:42:02+08:00</published><updated>2017-12-02T19:42:02+08:00</updated><id>http://localhost:4000/2017/12/02/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2017/12/02/welcome-to-jekyll.html">&lt;h1 id=&quot;welcome-to-sduphylug&quot;&gt;Welcome to sduphylug!&lt;/h1&gt;
 &lt;p&gt;邮件列表:&lt;code class=&quot;highlighter-rouge&quot;&gt;sduphylug@googlegroups.com&lt;/code&gt;
 &lt;a href=&quot;/about&quot;&gt;关于&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Welcome to sduphylug! 邮件列表:sduphylug@googlegroups.com 关于</summary></entry></feed>
