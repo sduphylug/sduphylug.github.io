@@ -50,3 +50,6 @@ gcc hello.c -o hello
 ``` shell
 hello world!
 ```
+此次活动的图片：
+
+![图片正在加载中](https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/223.jpg)
