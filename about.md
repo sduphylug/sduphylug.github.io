@@ -18,7 +18,8 @@ permalink: /about/
 #### 4. 其它与Linux相关的活动。
 ### 联系方式
 email:`sduphylug@googlegroups.com`
+### 加入我们
+QQ群:`686864836`
 ### 链接
 1. [科大ＬＵＧ](https://lug.ustc.edu.cn)
 2. [Ubuntu中文论坛](http://forum.ubuntu.org.cn)
-
