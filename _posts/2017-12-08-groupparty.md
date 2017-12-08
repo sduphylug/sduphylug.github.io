@@ -11,7 +11,8 @@ date: 2017-12-06
 
 几个常用的软件及其安装方法：
 * ### [git](https://git-scm.com/)
->Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.</br>
+>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+</br>
 >`Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。`
 
 安装方法（Ubuntu）：
@@ -32,7 +33,7 @@ sudo apt install git
 ``` shell
 nano hello.c
 ```
-```C
+``` C
 #include <stdio.h>
 int main()
 {
@@ -41,11 +42,11 @@ int main()
 }
 ```
 保存退出后退出
-```
+``` shell
 gcc hello.c -o hello
 ./hello
 ```
 输出：
-```
+``` shell
 hello world!
 ```
