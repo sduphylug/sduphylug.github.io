@@ -3,7 +3,6 @@ title: sduphylug
 email: sduphylug@googlegroups.com
 description: >- # this means to ignore newlines until "baseurl:"
 Linux User Group of  school of physics，Shandong University
-∵
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
