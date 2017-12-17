@@ -37,19 +37,19 @@ date用来显示主机现在的时间。主要有一下几种调用方式：
 
 现实当前月份的日历。
 
-![cal.png](https://github.com/sduphylug/sduphylug.github.io/blob/master/_posts/_imag/cal.png)
+![cal.png](https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/cal.png)
 
 >cal 年份
 
 显示一年的日历。
 
-![cal2.png](https://github.com/sduphylug/sduphylug.github.io/blob/master/_posts/_imag/cal2.png)
+![cal2.png](https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/cal2.png)
 
 >cal 月份 年份
 
 显示具体某年某月的日历。
 
-![cal3.png](https://github.com/sduphylug/sduphylug.github.io/blob/master/_posts/_imag/cal3.png)
+![cal3.png](https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/cal3.png)
 
 ## bc
 
@@ -59,7 +59,7 @@ bc是一个简单的计算器。不仅可以进行整数的加（+）减（-）�
 
 >scale = 某个数    //这个数就是你需要保留的位数
 
-![bc1.png](https://github.com/sduphylug/sduphylug.github.io/blob/master/_posts/_imag/bc1.png)
+![bc1.png](https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/bc1.png)
 
 其实在bc调用时就可以通过添加一个 -l参数来改变小数点后的精确位，-l的作用之一是把小数点后的精确位设为20，之二是使得计算器能够计算一些简单的函数：
 
@@ -75,4 +75,4 @@ bc是一个简单的计算器。不仅可以进行整数的加（+）减（-）�
 
 >j(x)   //贝塞尔函数
 
-![bc2.png](https://github.com/sduphylug/sduphylug.github.io/blob/master/_posts/_imag/bc2.png)
+![bc2.png](https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/bc2.png)
