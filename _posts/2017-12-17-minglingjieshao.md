@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux基本命令介绍
-date: 2015-12-17
+date: 2017-12-17
 
 ---
 
