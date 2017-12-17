@@ -25,7 +25,7 @@ date用来显示主机现在的时间。主要有一下几种调用方式：
 
 具体显示结果如下：
 
-！[date.png](https://github.com/sduphylug/sduphylug.github.io/blob/master/_posts/_imag/date.png)
+![date.png](https://github.com/sduphylug/sduphylug.github.io/blob/master/_posts/_imag/date.png)
 
 ## cal
 
