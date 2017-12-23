@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>第一次系统安装讨论会</title>
-  <meta name="description" content="作为我们小组成立的第一个活动，我们在本周五（公元2017年11月30日）举行了第一次系统安装讨论会。">
+  <title>linux使用交流会</title>
+  <meta name="description" content="linux使用交流会 距离上次新安装系统已经过去一星期了,在今天(12.06)小组成员们又汇聚一堂,交流ubuntu 17.10 的使用情况。">
 
   <link rel="stylesheet" href="/assets/main.css">
-  <link rel="canonical" href="http://localhost:4000/2017/12/03/first.html">
+  <link rel="canonical" href="http://localhost:4000/2017/12/06/groupparty.html">
   <link rel="alternate" type="application/rss+xml" title="sduphylug" href="/feed.xml">
   
   
@@ -67,47 +67,69 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">第一次系统安装讨论会</h1>
+    <h1 class="post-title" itemprop="name headline">linux使用交流会</h1>
     <p class="post-meta">
-      <time datetime="2017-12-03T00:00:00+08:00" itemprop="datePublished">
+      <time datetime="2017-12-06T00:00:00+08:00" itemprop="datePublished">
         
-        Dec 3, 2017
+        Dec 6, 2017
       </time>
       </p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>作为我们小组成立的第一个活动，我们在本周五（公元2017年11月30日）举行了第一次系统安装讨论会。</p>
-
-<p>这次讨论会主要的活动内容包括以下部分：</p>
+    <h1 id="linux使用交流会">linux使用交流会</h1>
+<p>距离上次新安装系统已经过去一星期了,在今天(12.06)小组成员们又汇聚一堂,交流ubuntu 17.10 的使用情况。</p>
 
 <ol>
-  <li>
-    <p>给小组内还没有安装ubuntu系统的组员安装系统。</p>
-  </li>
-  <li>
-    <p>演示一些简单但有特色的ubuntu命令，展示ubuntu系统的特点。</p>
-  </li>
-  <li>
-    <p>讨论ubuntu系统与主流操作系统，如windows，ios等的优缺点。</p>
-  </li>
+  <li>首先，老用户们先查看了上周新装系统的运行状况。确认运行正常。</li>
+  <li>接下来，成员们又讨论交流了ubuntu上的一些常用软件，并向新用户介绍了常用的安装程序的方法。</li>
 </ol>
 
-<p>系统正在安装：</p>
+<p>几个常用的软件及其安装方法：</p>
+<ul>
+  <li>
+    <h3 id="git"><a href="https://git-scm.com/">git</a></h3>
+    <blockquote>
+      <p>Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
+&lt;/br&gt;
+<code class="highlighter-rouge">Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。</code></p>
+    </blockquote>
+  </li>
+</ul>
 
-<p><img src="https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E5%AE%89%E8%A3%85%E4%B8%AD.jpg" alt="安装中.jpg" /></p>
+<p>安装方法（Ubuntu）：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt install git
+</code></pre></div></div>
+<p>安装过程中需要输入密码。</p>
+<ul>
+  <li>
+    <h3 id="gcc"><a href="https://gcc.gnu.org/">gcc</a></h3>
+  </li>
+</ul>
 
-<p>系统安装完成，小组成员正在体验：</p>
-
-<p><img src="https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E4%BD%BF%E7%94%A8%E4%B8%AD.jpg" alt="安装完成使用中.jpg" /></p>
-
-<p>系统的详细信息：</p>
-
-<p><img src="https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E7%B3%BB%E7%BB%9F%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF.jpg" alt="系统详细信息.jpg" /></p>
-
-<p>小组成员正在讨论：</p>
-
-<p><img src="https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E8%AE%A8%E8%AE%BA.jpg" alt="讨论.jpg" /></p>
+<p>gcc是一个著名的编译器。
+安装方法（Ubuntu）：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt install git
+</code></pre></div></div>
+<p>简单介绍一下使用方法：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano hello.c
+</code></pre></div></div>
+<pre><code class="language-C">#include &lt;stdio.h&gt;
+int main()
+{
+    printf("%s\n","hello world!");
+    return 0;
+}
+</code></pre>
+<p>保存退出后退出</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc hello.c <span class="nt">-o</span> hello
+./hello
+</code></pre></div></div>
+<p>输出：</p>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>hello world!
+</code></pre></div></div>
 
   </div>
 
