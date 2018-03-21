@@ -1,85 +1,499 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-08T14:58:25+08:00</updated><id>http://localhost:4000/</id><title type="html">sduphylug</title><subtitle>Shandong University School of Physics Linux User Group</subtitle><entry><title type="html">linux使用交流会</title><link href="http://localhost:4000/2017/12/06/groupparty.html" rel="alternate" type="text/html" title="linux使用交流会" /><published>2017-12-06T00:00:00+08:00</published><updated>2017-12-06T00:00:00+08:00</updated><id>http://localhost:4000/2017/12/06/groupparty</id><content type="html" xml:base="http://localhost:4000/2017/12/06/groupparty.html">&lt;h1 id=&quot;linux使用交流会&quot;&gt;linux使用交流会&lt;/h1&gt;
-&lt;p&gt;距离上次新安装系统已经过去一星期了,在今天(12.06)小组成员们又汇聚一堂,交流ubuntu 17.10 的使用情况。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-21T21:04:42+08:00</updated><id>http://localhost:4000/</id><title type="html">sduphylug</title><subtitle>Linux User Group of  school of physics，Shandong University</subtitle><entry><title type="html">利用python画分形图案</title><link href="http://localhost:4000/2018/03/21/py1.html" rel="alternate" type="text/html" title="利用python画分形图案" /><published>2018-03-21T00:00:00+08:00</published><updated>2018-03-21T00:00:00+08:00</updated><id>http://localhost:4000/2018/03/21/py1</id><content type="html" xml:base="http://localhost:4000/2018/03/21/py1.html">&lt;!-- 数学公式 --&gt;
+&lt;script src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
 
+&lt;script type=&quot;text/x-mathjax-config&quot;&gt;
+  MathJax.Hub.Config({
+    tex2jax: {
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      inlineMath: [['$','$']]
+    }
+  });
+&lt;/script&gt;
+
+&lt;h1 id=&quot;利用python画分形图案&quot;&gt;利用python画分形图案&lt;/h1&gt;
+
+&lt;p&gt;复变函数迭代&lt;/p&gt;
+
+&lt;p&gt;复数迭代可以产生复杂的分形图案。考虑复数迭代：&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;Z_{k+1}=Z_{k}^{m}+C\qquad(k=0,1,2,……)&lt;/script&gt;
+
+&lt;p&gt;其中一个有趣的复数集是$m=2$时取$Z=Z_{0}$对不同C进行迭代时,不发散，成为Mandelbrot集合。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InlineBackend&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close_figures&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cm&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;#导入matplotlib中的colormap模块&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pl&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;dogplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#利用python 写成的迭代函数输入一个数，返回迭代次数&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;对函数功能进行测试：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;dogplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0001&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;18
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;下面声明一个函数：&lt;/p&gt;
 &lt;ol&gt;
-  &lt;li&gt;首先，老用户们先查看了上周新装系统的运行状况。确认运行正常。&lt;/li&gt;
-  &lt;li&gt;接下来，成员们又讨论交流了ubuntu上的一些常用软件，并向新用户介绍了常用的安装程序的方法。&lt;/li&gt;
+  &lt;li&gt;先生成一个二位网格 x,y&lt;/li&gt;
+  &lt;li&gt;将这个二位网格复数化&lt;/li&gt;
+  &lt;li&gt;将刚才定义的迭代函数进行numpy化，并将返回值转化为浮点数。&lt;/li&gt;
+  &lt;li&gt;cx cy是中心坐标，d是距离中心 ，n是网格的精细程度。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;几个常用的软件及其安装方法：&lt;/p&gt;
-&lt;ul&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;graddog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;x0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ogrid&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;frompyfunc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dogplot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;下面是一个绘图函数，将matplotlib接口进一步封装。&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imshow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;graddog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gca&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set_axis_off&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;pl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;设定绘图窗口的大小：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;pl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;figsize&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;15&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;matplotlib.figure.Figure at 0x7fdfea73b588&amp;gt;
+
+
+
+
+&amp;lt;matplotlib.figure.Figure at 0x7fdfea73b588&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_13_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这是画出来的第一个图，由于设定网格比较精细，所以时间长。&lt;/p&gt;
+
+&lt;p&gt;将局部图放大看看：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_15_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;放大四倍：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.49&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_17_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;再放大：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.49&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;500&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_19_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;提高精细的：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.49&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.05&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_21_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;放大：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.49&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.01&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_23_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;放大：&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.49&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.005&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_25_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;drawdog&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.55&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.49&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.0005&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/output_26_0.png&quot; alt=&quot;png&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">利用python画分形图案</summary></entry><entry><title type="html">Linux下常用编辑器的介绍</title><link href="http://localhost:4000/2018/03/18/editor.html" rel="alternate" type="text/html" title="Linux下常用编辑器的介绍" /><published>2018-03-18T00:00:00+08:00</published><updated>2018-03-18T00:00:00+08:00</updated><id>http://localhost:4000/2018/03/18/editor</id><content type="html" xml:base="http://localhost:4000/2018/03/18/editor.html">&lt;p&gt;在linux上进行编程，和在windows下很不一样。windows下的编程环境都是将代码编辑，编译，调试等放在一起的，构成我们称之为的“集成化编程环境”，也就是俗称的IDE。
+但是在linux下这些部分都是分开的，一般来说。在linux下进行编程，一般分为以下几步：源代码编辑，编译，（调试），执行。&lt;/p&gt;
+
+&lt;p&gt;作为编程的第一步，编辑源代码需要一个最基本的工具，那就是编辑器。在windows下的编辑器有记事本等，但是在linux下的编辑器就更多了，比如说vim，emacs，atom等等。
+这么多编辑器可以说是各有千秋，不论是哪一种，只要能够熟练掌握，都会对我们的开发工作带来事半功倍的效果。&lt;/p&gt;
+
+&lt;h2 id=&quot;vim&quot;&gt;vim&lt;/h2&gt;
+
+&lt;p&gt;vim编辑器起源于vi。vi是visual editor的简称，它诞生于1976年，时至今日，他仍然是linux和unix上最为基本的编辑器。由于不需要图形界面，vi是效率很高的文本编辑
+器。作为一个诞生于上个世纪的编辑器来说，他的所有功能已经十分齐全，但是vim作为vi的高级版本，在易用性方面做出了很多改进，比如说添加了语法高亮，支持多文件编辑
+等。&lt;/p&gt;
+
+&lt;p&gt;提到vim不能不说它独具特色的操作模式：脱离鼠标，完全使用键盘，分为一般模式，编辑模式和命令行模式，所有的操作全部通过键盘输入命令实现。这种“奇葩”的操作方法让不
+少人望而生畏，但是这种操作方式看似复杂，一旦掌握，效率就会直线上升。所以说vim虽然很古老，但是他的高效率使得即使今天在很多方面它仍然是不可替代的。&lt;/p&gt;
+
+&lt;h2 id=&quot;emacs&quot;&gt;emacs&lt;/h2&gt;
+
+&lt;p&gt;emacs是著名的继承开发环境和编辑器，被公认为最受专业程序员喜爱的代码编辑器之一。它的历史和vi差不多一样久远。但是他的最大特色在于，他是一个集成化的开发环境，
+这些功能让使用者置身于全功能的操作系统中，在基于编辑器的基础上，emacs自行开发了一个“bourne-shell-like”的shell：Eshell。emacs功能齐全，他的功能远远超
+出了普通编辑器的范围。它可以收发电子邮件，通过telnet登陆主机，查看日历，撰写文章大纲，对多种编程语言的编辑，玩游戏，计算器，写日记等等。&lt;/p&gt;
+
+&lt;h2 id=&quot;atom&quot;&gt;atom&lt;/h2&gt;
+
+&lt;p&gt;atom是一个现代化的编辑器。它是github为程序员推出的一个跨平台的文本编辑器。具有简洁而直观的图形界面，并且有很多有趣的特点。该编辑器在2015年1月8日宣布开源。&lt;/p&gt;
+
+&lt;p&gt;作为一个很新的软件，在易用性上atom是非常好的，这也是一款和windows下的IDE比较像的编辑器，初学者可以很快上手，门槛比较低。同时，atom支持各种插件，用户可以根据
+自己的爱好和习惯打造属于自己的独一无二的编辑器。&lt;/p&gt;</content><author><name></name></author><summary type="html">在linux上进行编程，和在windows下很不一样。windows下的编程环境都是将代码编辑，编译，调试等放在一起的，构成我们称之为的“集成化编程环境”，也就是俗称的IDE。 但是在linux下这些部分都是分开的，一般来说。在linux下进行编程，一般分为以下几步：源代码编辑，编译，（调试），执行。</summary></entry><entry><title type="html">树莓派利用nginx搭建静态网页服务器</title><link href="http://localhost:4000/2018/02/20/rasp4.html" rel="alternate" type="text/html" title="树莓派利用nginx搭建静态网页服务器" /><published>2018-02-20T00:00:00+08:00</published><updated>2018-02-20T00:00:00+08:00</updated><id>http://localhost:4000/2018/02/20/rasp4</id><content type="html" xml:base="http://localhost:4000/2018/02/20/rasp4.html">&lt;h1 id=&quot;nginx&quot;&gt;&lt;a href=&quot;http://nginx.org/&quot;&gt;nginx&lt;/a&gt;&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Nginx是一款轻量级的Web 服务器/反向代理服务器及电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。其特点是占有内存少，并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Nginx占用资源少，稳定，兼容性好，非常适合在树莓派上做web静态网页服务器。&lt;/p&gt;
+
+&lt;h2 id=&quot;1-安装nginx&quot;&gt;1. 安装nginx&lt;/h2&gt;
+&lt;p&gt;在树莓派上安装nginx非常简单：&lt;/p&gt;
+
+&lt;p&gt;打开终端输入：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo apt install nginx&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;即可。&lt;/p&gt;
+
+&lt;p&gt;运行&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo /etc/init.d/nginx start&lt;/code&gt;启动nginx。&lt;/p&gt;
+
+&lt;p&gt;这时在浏览器中输入树莓派的IP地址即可看到nginx的欢迎页面。&lt;/p&gt;
+
+&lt;h2 id=&quot;2-配置nginx&quot;&gt;2. 配置nginx&lt;/h2&gt;
+&lt;p&gt;nginx配置很简单。在&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/nginx&lt;/code&gt;下存在大量的配置文件。&lt;/p&gt;
+
+&lt;p&gt;配置文件下的大部分内容均无需修改，开箱即用。&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/nginx/conf.d&lt;/code&gt;
+这个目录中新建一个配置文件，可以把默认的配置文件复制过来进行修改：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+    server_name dogcraft.ga; #域名
+    location / {
+        root /html/; #网站的根目录
+        index index.html; #默认文件
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;静态网页文件在&lt;code class=&quot;highlighter-rouge&quot;&gt;/var/www/html&lt;/code&gt;下，把静态网页文件放到这个目录下就可以了。&lt;/p&gt;
+
+&lt;p&gt;这里用现成的的静态网页文件做例子。&lt;/p&gt;
+
+&lt;p&gt;获取静态网页文件：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir html
+git clone https://github.com/sunhead2017/sunhead2017.GitHub.com.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;找到目录下的&lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt;文件夹，这是存放静态网页的地方。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd _site
+sudo mv * /var/www/html
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;再运行 &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo nginx -s reload&lt;/code&gt;即可。&lt;/p&gt;
+
+&lt;h2 id=&quot;3-效果展示&quot;&gt;3. 效果展示&lt;/h2&gt;
+
+&lt;p&gt;在校园网内访问&lt;a href=&quot;http://www.dogcraft.ga&quot;&gt;dogcraft.ga&lt;/a&gt;即可查看本例所示的静态网页。&lt;/p&gt;</content><author><name></name></author><summary type="html">nginx</summary></entry><entry><title type="html">树莓派SD卡的制作</title><link href="http://localhost:4000/2018/02/18/rasp3.html" rel="alternate" type="text/html" title="树莓派SD卡的制作" /><published>2018-02-18T00:00:00+08:00</published><updated>2018-02-18T00:00:00+08:00</updated><id>http://localhost:4000/2018/02/18/rasp3</id><content type="html" xml:base="http://localhost:4000/2018/02/18/rasp3.html">&lt;p&gt;众所周知，SD卡是树莓派必不可少的部件之一。要想正确使用树莓派，正确制造一个SD卡是不可缺少的一部。&lt;/p&gt;
+
+&lt;p&gt;现已树莓派官方系统为例，介绍树莓派SD卡的制作方法。&lt;/p&gt;
+
+&lt;ol&gt;
   &lt;li&gt;
-    &lt;h3 id=&quot;git&quot;&gt;&lt;a href=&quot;https://git-scm.com/&quot;&gt;git&lt;/a&gt;&lt;/h3&gt;
+    &lt;p&gt;准备工具SD卡一张，读卡器一个。&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;注意：SD卡存储容量需大于8G，采用容量虚表的SD卡可能会导致严重未知的错误。&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;前往官网&lt;a href=&quot;https://www.raspberrypi.org/downloads/&quot;&gt;www.raspberrypi.org/downloads/&lt;/a&gt;下载。选择raspbian。&lt;/p&gt;
+
+    &lt;p&gt;&lt;img src=&quot;https://www.raspberrypi.org/app/uploads/2015/08/raspbian.png&quot; alt=&quot;raspbian&quot; /&gt;&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;raspbian是基于debian的为树莓派定制的linux发行版。&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;下载完成后检验下载文件的has256，养成良好的习惯有利于系统安全。&lt;/p&gt;
+
+    &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;使用方法：has256sum 文件名&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;将下载镜像文件写入SD卡。&lt;/p&gt;
+
+    &lt;p&gt;1.现将SD卡插入到电脑，在终端中输入&lt;code class=&quot;highlighter-rouge&quot;&gt;ls /dev/ |grep sd&lt;/code&gt;或者&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo fdisk -l&lt;/code&gt;用来查看SD卡在linux下的对应文件的名称。&lt;/p&gt;
+
+    &lt;p&gt;2.使用dd工具或者系统自带的磁盘映像工具(推荐，双击或右键打开即可。)将镜像文件写入SD卡。再带的工具有着良好的界面，还能实时查看进度，安全性高。&lt;/p&gt;
     &lt;blockquote&gt;
-      &lt;p&gt;Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.
-&amp;lt;/br&amp;gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Git是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。&lt;/code&gt;&lt;/p&gt;
+      &lt;p&gt;dd命令是一个强大的定向写入命令，稍有不慎就会机毁人亡。具体可以&lt;code class=&quot;highlighter-rouge&quot;&gt;man dd&lt;/code&gt;了解详情。&lt;/p&gt;
     &lt;/blockquote&gt;
   &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;安装方法（Ubuntu）：&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;安装过程中需要输入密码。&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;h3 id=&quot;gcc&quot;&gt;&lt;a href=&quot;https://gcc.gnu.org/&quot;&gt;gcc&lt;/a&gt;&lt;/h3&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;gcc是一个著名的编译器。
-安装方法（Ubuntu）：&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
-&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install git
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;简单介绍一下使用方法：&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano hello.c
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;pre&gt;&lt;code class=&quot;language-C&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-int main()
-{
-    printf(&quot;%s\n&quot;,&quot;hello world!&quot;);
-    return 0;
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;保存退出后退出&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gcc hello.c &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; hello
-./hello
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;输出：&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hello world!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">linux使用交流会 距离上次新安装系统已经过去一星期了,在今天(12.06)小组成员们又汇聚一堂,交流ubuntu 17.10 的使用情况。</summary></entry><entry><title type="html">第一次系统安装讨论会</title><link href="http://localhost:4000/2017/12/03/first.html" rel="alternate" type="text/html" title="第一次系统安装讨论会" /><published>2017-12-03T00:00:00+08:00</published><updated>2017-12-03T00:00:00+08:00</updated><id>http://localhost:4000/2017/12/03/first</id><content type="html" xml:base="http://localhost:4000/2017/12/03/first.html">&lt;p&gt;作为我们小组成立的第一个活动，我们在本周五（公元2017年11月30日）举行了第一次系统安装讨论会。&lt;/p&gt;
-
-&lt;p&gt;这次讨论会主要的活动内容包括以下部分：&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;给小组内还没有安装ubuntu系统的组员安装系统。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;演示一些简单但有特色的ubuntu命令，展示ubuntu系统的特点。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;讨论ubuntu系统与主流操作系统，如windows，ios等的优缺点。&lt;/p&gt;
-  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;系统正在安装：&lt;/p&gt;
+&lt;p&gt;这样SD卡就制作完成了，插入树莓派即可启动。&lt;/p&gt;</content><author><name></name></author><summary type="html">众所周知，SD卡是树莓派必不可少的部件之一。要想正确使用树莓派，正确制造一个SD卡是不可缺少的一部。</summary></entry><entry><title type="html">利用树莓派、arduino、dht11搭建实时监控温湿度的web服务器</title><link href="http://localhost:4000/2018/02/03/rasp2.html" rel="alternate" type="text/html" title="利用树莓派、arduino、dht11搭建实时监控温湿度的web服务器" /><published>2018-02-03T00:00:00+08:00</published><updated>2018-02-03T00:00:00+08:00</updated><id>http://localhost:4000/2018/02/03/rasp2</id><content type="html" xml:base="http://localhost:4000/2018/02/03/rasp2.html">&lt;p&gt;现已成功&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E5%AE%89%E8%A3%85%E4%B8%AD.jpg&quot; alt=&quot;安装中.jpg&quot; /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;项目网址dog-craftf3322net10240&quot;&gt;项目网址：&lt;a href=&quot;http://dog-craft.f3322.net:10240/&quot;&gt;dog-craft.f3322.net:10240&lt;/a&gt;&lt;/h1&gt;
 
-&lt;p&gt;系统安装完成，小组成员正在体验：&lt;/p&gt;
+&lt;p&gt;现已失效（2018.02.18更新）&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90%E4%BD%BF%E7%94%A8%E4%B8%AD.jpg&quot; alt=&quot;安装完成使用中.jpg&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;受ddns解析服务影响，首次访问可能十分缓慢，请耐心等待。
+教程随后放出。&lt;/p&gt;
 
-&lt;p&gt;系统的详细信息：&lt;/p&gt;
+&lt;h2 id=&quot;教程一sd卡的制作&quot;&gt;&lt;a href=&quot;https://sduphylug.github.io/2018/02/18/rasp3.html&quot;&gt;教程一、SD卡的制作&lt;/a&gt;&lt;/h2&gt;</content><author><name></name></author><summary type="html">现已成功</summary></entry><entry><title type="html">raspberry pi 简单介绍</title><link href="http://localhost:4000/2018/02/03/rasp1.html" rel="alternate" type="text/html" title="raspberry pi 简单介绍" /><published>2018-02-03T00:00:00+08:00</published><updated>2018-02-03T00:00:00+08:00</updated><id>http://localhost:4000/2018/02/03/rasp1</id><content type="html" xml:base="http://localhost:4000/2018/02/03/rasp1.html">&lt;h1 id=&quot;raspberry-pi-简单介绍&quot;&gt;raspberry pi 简单介绍&lt;/h1&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E7%B3%BB%E7%BB%9F%E8%AF%A6%E7%BB%86%E4%BF%A1%E6%81%AF.jpg&quot; alt=&quot;系统详细信息.jpg&quot; /&gt;&lt;/p&gt;
+&lt;h2 id=&quot;raspberry-pi-基本信息&quot;&gt;raspberry pi 基本信息&lt;/h2&gt;
+&lt;p&gt;树莓派是由树莓派基金会开发的,树莓派基金会是一个在英国注册的慈善机构。树莓派最早是被设计为第三世界国家普及计算机教育而开发的低成本电脑，希望落后地区的贫困儿童能够学习掌握计算机知识，从而利用计算机技术改变自己的命运，也改变家乡贫困落后的面貌。从而使由计算机科学与技术进步带来的发展成果由全人类共享。树莓派廉价的特点使其受到电脑业余爱好者、教师、小学生以及小型企业等用户的喜爱。&lt;/p&gt;
 
-&lt;p&gt;小组成员正在讨论：&lt;/p&gt;
+&lt;p&gt;树莓派至今为止共发行了三个主要版本，目前是第三代&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/%E8%AE%A8%E8%AE%BA.jpg&quot; alt=&quot;讨论.jpg&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">作为我们小组成立的第一个活动，我们在本周五（公元2017年11月30日）举行了第一次系统安装讨论会。</summary></entry><entry><title type="html">Welcome to sduphylug!</title><link href="http://localhost:4000/2017/12/02/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to sduphylug!" /><published>2017-12-02T19:42:02+08:00</published><updated>2017-12-02T19:42:02+08:00</updated><id>http://localhost:4000/2017/12/02/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/2017/12/02/welcome-to-jekyll.html">&lt;h1 id=&quot;welcome-to-sduphylug&quot;&gt;Welcome to sduphylug!&lt;/h1&gt;
-&lt;p&gt;邮件列表:&lt;code class=&quot;highlighter-rouge&quot;&gt;sduphylug@googlegroups.com&lt;/code&gt;
-&lt;a href=&quot;/about&quot;&gt;关于&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Welcome to sduphylug! 邮件列表:sduphylug@googlegroups.com 关于</summary></entry></feed>
+&lt;p&gt;第三代的简要配置说明：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Quad Core 1.2GHz Broadcom BCM2837 64bit CPU&lt;/li&gt;
+  &lt;li&gt;1GB RAM&lt;/li&gt;
+  &lt;li&gt;BCM43438 wireless LAN and Bluetooth Low Energy (BLE) on board&lt;/li&gt;
+  &lt;li&gt;40-pin extended GPIO&lt;/li&gt;
+  &lt;li&gt;4 USB 2 ports&lt;/li&gt;
+  &lt;li&gt;4 Pole stereo output and composite video port * Full size HDMI&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下面是中文介绍：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;四核1.2GHz Broadcom BCM2837 64位CPU&lt;/li&gt;
+  &lt;li&gt;1GB RAM&lt;/li&gt;
+  &lt;li&gt;板载BCM43143 WiFi和蓝牙低能耗(BLE)&lt;/li&gt;
+  &lt;li&gt;40引脚扩展GPIO&lt;/li&gt;
+  &lt;li&gt;4个USB 2端口&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;如何购买&quot;&gt;如何购买&lt;/h2&gt;
+
+&lt;p&gt;官方购买途径：&lt;/p&gt;
+&lt;h3 id=&quot;商业购买&quot;&gt;商业购买&lt;/h3&gt;
+&lt;p&gt;联系树莓派的制造商：&lt;a href=&quot;http://cn.element14.com/buy-raspberry-pi&quot;&gt;element14&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;个人用户购买&quot;&gt;个人用户购买&lt;/h3&gt;
+
+&lt;p&gt;官方给了两个某宝链接……&lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt;万能某宝&lt;/del&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;相关配件&quot;&gt;相关配件&lt;/h2&gt;
+
+&lt;p&gt;必须配件：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;SD卡（装系统用）&lt;/li&gt;
+  &lt;li&gt;电源线&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;可选配件：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;盒子&lt;/li&gt;
+  &lt;li&gt;键鼠&lt;/li&gt;
+  &lt;li&gt;显示屏&lt;/li&gt;
+  &lt;li&gt;散热片&lt;/li&gt;
+  &lt;li&gt;风扇&lt;/li&gt;
+  &lt;li&gt;……&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">raspberry pi 简单介绍</summary></entry><entry><title type="html">linux基本命令介绍（五）</title><link href="http://localhost:4000/2018/01/28/water.html" rel="alternate" type="text/html" title="linux基本命令介绍（五）" /><published>2018-01-28T00:00:00+08:00</published><updated>2018-01-28T00:00:00+08:00</updated><id>http://localhost:4000/2018/01/28/water</id><content type="html" xml:base="http://localhost:4000/2018/01/28/water.html">&lt;p&gt;本文将介绍2个命令：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;touch&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;echo&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;touch&quot;&gt;touch&lt;/h2&gt;
+
+&lt;p&gt;touch命令有两个作用，一个是把已存在的文件标签更改为系统当前的时间（默认方式），他们的数据将原封不动的保存下来；二是用来创建新的空文件。&lt;/p&gt;
+
+&lt;p&gt;语法：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;touch（选项）（参数）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;选项：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;-a：只更改存取时间；
+-c：不建立任何文件；
+-d：&lt;时间日期&gt; 使用指定的时间日期，而非现在的时间；
+-m：只更改变动时间；
+-r：&lt;参考文件或目录&gt; 把指定文件或目录的日期时间统统设成和参考文件或目录的日期时间相同；&lt;/参考文件或目录&gt;&lt;/时间日期&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;参数：&lt;/p&gt;
+
+&lt;p&gt;文件：指定要设置的时间属性和文件列表。&lt;/p&gt;
+
+&lt;p&gt;实例：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;touch ex2&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&quot;echo&quot;&gt;echo&lt;/h2&gt;
+
+&lt;p&gt;echo用于在shell中打印shell变量的值，或者直接输出指定的字符串。&lt;/p&gt;
+
+&lt;p&gt;语法：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;echo（选项）（参数）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;选项：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;-e  激活转义字符&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;实例：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;echo “he\nhe”  显示：he\nhe
+echo -e “he\nhe”      显示：he（换行）he&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name></name></author><summary type="html">本文将介绍2个命令：</summary></entry><entry><title type="html">linux基本命令介绍（四）</title><link href="http://localhost:4000/2018/01/21/linux.html" rel="alternate" type="text/html" title="linux基本命令介绍（四）" /><published>2018-01-21T00:00:00+08:00</published><updated>2018-01-21T00:00:00+08:00</updated><id>http://localhost:4000/2018/01/21/linux</id><content type="html" xml:base="http://localhost:4000/2018/01/21/linux.html">&lt;p&gt;本文主要介绍三个命令：&lt;/p&gt;
+
+&lt;p&gt;*1 time&lt;/p&gt;
+
+&lt;p&gt;*2 cat&lt;/p&gt;
+
+&lt;p&gt;*3 file&lt;/p&gt;
+
+&lt;h2 id=&quot;time&quot;&gt;time&lt;/h2&gt;
+
+&lt;p&gt;time命令用来测试一个程序的执行时间，使用方法非常简单，就是在执行程序之前加上time。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/time.png&quot; alt=&quot;time.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;real：实际时间，从command命令行开始执行到运行终止的时间；&lt;/p&gt;
+
+&lt;p&gt;user：用户CPU时间，命令执行完成花费的用户CPU时间，即命令在用户态中执行时间总和；&lt;/p&gt;
+
+&lt;p&gt;sys：系统CPU时间，命令执行完成花费的系统CPU时间，即命令在核心态中执行时间总和；&lt;/p&gt;
+
+&lt;h2 id=&quot;cat&quot;&gt;cat&lt;/h2&gt;
+
+&lt;p&gt;这个命令用来读取一个文本文件，后接文件名。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;cat filename        //注意要加后缀名&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/cat.png&quot; alt=&quot;cat.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;比如查看一个名为hahaha的doc文件，可以这样操作。&lt;/p&gt;
+
+&lt;h2 id=&quot;file&quot;&gt;file&lt;/h2&gt;
+
+&lt;p&gt;该命令用于判断接在file命令后的文件的基本属性，因为在Linux下文件的类型并不是以后缀为分的，
+所以这个命令对我们来说就很有用了，它的用法非常简单，基本语法如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;file filename       //注意要加后缀名&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/sduphylug/sduphylug.github.io/master/_posts/_imag/file.png&quot; alt=&quot;file.png&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;可以看出这个hahaha.doc的属性和c程序源代码的属性。&lt;/p&gt;</content><author><name></name></author><summary type="html">本文主要介绍三个命令：</summary></entry><entry><title type="html">一个好玩的东西</title><link href="http://localhost:4000/2018/01/15/water3.html" rel="alternate" type="text/html" title="一个好玩的东西" /><published>2018-01-15T00:00:00+08:00</published><updated>2018-01-15T00:00:00+08:00</updated><id>http://localhost:4000/2018/01/15/water3</id><content type="html" xml:base="http://localhost:4000/2018/01/15/water3.html">&lt;h1 id=&quot;一个好玩的东西hollywood&quot;&gt;一个好玩的东西hollywood&lt;/h1&gt;
+
+&lt;p&gt;hollywood: 好莱坞大片风格的终端&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;来自 Ubuntu 的 Dustin Kirkland 利用一个长途飞行的时间，编写了这个炫酷、有趣但也没什么实际作用的软件。不管怎样，现在您有了一个可以模拟电影中模拟黑客的软件了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;先上图&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/2018-01-12%2018-13-13%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png&quot; alt=&quot;tu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/2018-01-12%2018-13-04%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png&quot; alt=&quot;tuu&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;还有背景音乐！&lt;/p&gt;
+
+&lt;p&gt;安装方法(Ubuntu)：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install hollywood
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在终端中运行：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hollywood
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/2018-01-12%2018-11-55%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png&quot; alt=&quot;too&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;cmatrix也是一个比较好玩的屏保&lt;/p&gt;
+
+&lt;p&gt;安装(Ubuntu)：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install cmatrix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在终端中运行：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cmatrix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://github.com/sduphylug/sduphylug.github.io/raw/master/_posts/_imag/2018-01-12%2019-34-25%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png&quot; alt=&quot;555&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;预告：假期中可能有树莓派和单片机的内容。&lt;/code&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">一个好玩的东西hollywood</summary></entry><entry><title type="html">推荐一个模电实验报告自动化生成工具</title><link href="http://localhost:4000/2018/01/05/water2.html" rel="alternate" type="text/html" title="推荐一个模电实验报告自动化生成工具" /><published>2018-01-05T00:00:00+08:00</published><updated>2018-01-05T00:00:00+08:00</updated><id>http://localhost:4000/2018/01/05/water2</id><content type="html" xml:base="http://localhost:4000/2018/01/05/water2.html">&lt;h1 id=&quot;推荐一个模电实验报告自动化生成工具&quot;&gt;推荐一个模电实验报告自动化生成工具&lt;/h1&gt;
+&lt;p&gt;项目地址：&lt;a href=&quot;https://github.com/ybw2016v/modian&quot;&gt;ybw2016v/modian&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;以下是一些介绍：&lt;/p&gt;
+
+&lt;h2 id=&quot;功能&quot;&gt;功能&lt;/h2&gt;
+&lt;p&gt;基于python3编写的面向对象的模电实验报告自动化生成工具。该工具可以自动读取双路输入示波器自动保存的波形数据，可以自动检测出峰峰值，频率（可能不准）。自动生成出markdown格式的数据表格。可以应用在模电实验报告实验数据处理方面。&lt;/p&gt;
+
+&lt;h2 id=&quot;使用方法&quot;&gt;使用方法&lt;/h2&gt;
+&lt;p&gt;首先应该有&lt;code class=&quot;highlighter-rouge&quot;&gt;python3 matplotlib&lt;/code&gt;等常用python工具。程序中涉及到文件路径的部分均采用Linux风格，Windows用户请自行更改或联系作者。&lt;/p&gt;
+
+&lt;p&gt;在bash中输入。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/ybw2016v/modian.git
+cd modian
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;将示波器输出的文件复制到modian目录下。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 mo.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;即可坐等实验数据。&lt;/p&gt;
+
+&lt;p&gt;将生成的markdown转换成PDF或其他格式打印即可。&lt;/p&gt;
+
+&lt;p&gt;有任何问题可联系作者。&lt;/p&gt;</content><author><name></name></author><summary type="html">推荐一个模电实验报告自动化生成工具 项目地址：ybw2016v/modian</summary></entry></feed>
